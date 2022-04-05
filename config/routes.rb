@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/index'
+    get 'customers/unsubscribe'
+    get 'customers/withdraw'
+  end
   scope module: :public do
     root :to => 'homes#top'
     get 'about' => 'homes#about'
