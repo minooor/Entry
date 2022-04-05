@@ -9,6 +9,9 @@ Rails.application.routes.draw do
      get 'unsubscribe' => 'customers#unsubscribe'
      patch 'withdraw' => 'customers#withdraw'
    end
+
+   resources :profiles
+
    #会員用
    devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
