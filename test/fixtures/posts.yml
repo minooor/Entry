@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  game_on: 2022-04-06
+  prefecture: 1
+  ground: MyText
+  content: MyText
+
+two:
+  customer: two
+  game_on: 2022-04-06
+  prefecture: 1
+  ground: MyText
+  content: MyText

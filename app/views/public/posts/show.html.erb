@@ -1,0 +1,17 @@
+<h2>練習試合募集詳細</h2>
+<div>
+  試合日時
+  <%= @post.game_on %>
+</div>
+<div>
+  グラウンド
+  <%= @post.ground %>
+</div>
+<div>
+  コメント
+  <%= @post.content %>
+</div>
+
+<%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+<%= link_to "戻る", posts_path, class: "btn btn-secondary" %>
+

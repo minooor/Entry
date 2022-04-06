@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    end
 
    resources :profiles
+   resources :posts
 
    #会員用
    devise_for :customers,skip: [:passwords], controllers: {

@@ -1,0 +1,17 @@
+<h3>練習試合募集投稿</h3>
+<%= form_with model: @post, local: true do |f| %>
+<div>
+  <%= f.label "試合日時" %>
+  <%= f.date_field :game_on %>
+</div>
+<div>
+  <%= f.label "グラウンド" %>
+  <%= f.text_field :ground %>
+</div>
+<div>
+  <%= f.label "コメント" %>
+  <%= f.text_field :content %>
+</div>
+<%= f.submit class: 'btn btn-success' %>
+<% end %>
+<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>

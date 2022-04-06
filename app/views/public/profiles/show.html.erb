@@ -1,25 +1,22 @@
 <h1>プロフィール</h1>
-<%= form_with model: @profile, local: true do |f| %>
+
 <div>
-  <%= f.label "チーム名" %>
-  <%= f.text_field :name %>
+  <%= image_tag @profile.get_profile_image, size:'200x200' %>
+</div>
+<div>
+  <%= @profile.name %>
 </div>
  <div>
-   <%= f.label "活動拠点" %>
-   <%= f.text_field :address %>
+   <%= @profile.address %>
  </div>
  <div>
-   <%= f.label "人数" %>
-   <%= f.text_field :member %>
+   <%= @profile.member %>
  </div>
  <div>
-   <%= f.label "チームレベル" %>
-   <%= f.text_field :level %>
+   <%= @profile.level %>
  </div>
  <div>
-   <%= f.label "活動日" %>
-   <%= f.text_field :activity_day %>
+   <%= @profile.activity_day %>
  </div>
-<% end %>
 <%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
 <%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>
