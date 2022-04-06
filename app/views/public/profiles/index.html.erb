@@ -1,0 +1,26 @@
+<h1>チーム一覧</h1>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>プロフィール写真</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+    <tr>
+      <td>
+        <%= link_to profile_path(profile) do %>
+        <%= profile.customer.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag profile.get_profile_image, size:'50x50' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

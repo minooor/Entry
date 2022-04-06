@@ -1,0 +1,22 @@
+<h1>プロフィール</h1>
+
+<div>
+  <%= image_tag @profile.get_profile_image, size:'200x200' %>
+</div>
+<div>
+  <%= @profile.name %>
+</div>
+ <div>
+   <%= @profile.address %>
+ </div>
+ <div>
+   <%= @profile.member %>
+ </div>
+ <div>
+   <%= @profile.level %>
+ </div>
+ <div>
+   <%= @profile.activity_day %>
+ </div>
+<%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
+<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>

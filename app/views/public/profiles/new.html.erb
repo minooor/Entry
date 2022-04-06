@@ -1,0 +1,29 @@
+<h1>プロフィールを作成する</h1>
+<%= form_with model: @profile, local: true do |f| %>
+<div>
+  <%= f.label :image %>
+  <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+</div>
+<div>
+  <%= f.label "チーム名" %>
+  <%= f.text_field :name %>
+</div>
+ <div>
+   <%= f.label "活動拠点" %>
+   <%= f.text_field :address %>
+ </div>
+ <div>
+   <%= f.label "人数" %>
+   <%= f.text_field :member %>
+ </div>
+ <div>
+   <%= f.label "チームレベル" %>
+   <%= f.text_field :level %>
+ </div>
+ <div>
+   <%= f.label "活動日" %>
+   <%= f.text_field :activity_day %>
+ </div>
+ <%= f.submit class: 'btn btn-success' %>
+<% end %>
+<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>

@@ -1,0 +1,25 @@
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>日程</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+    <tr>
+      <td>
+        <%= link_to post_path(post) do %>
+        <%= post.customer.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= post.game_on %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
