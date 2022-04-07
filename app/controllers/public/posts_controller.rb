@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(game_on: :desc)
   end
 
   def show
@@ -45,10 +45,15 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def search_post
+    @post = Post.new
+    @posts = Post.search(params[:keyword])
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:game_on, :prefecture, :ground, :content)
+    params.require(:post).permit(:game_on, :prefecture, :ground, :content, :category, :is_active)
   end
 
 end

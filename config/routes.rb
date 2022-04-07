@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
    resources :profiles
    resources :posts
+   get "search_post" => "posts#search_post"
 
    #会員用
    devise_for :customers,skip: [:passwords], controllers: {

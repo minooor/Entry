@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2022_04_06_101227) do
     t.integer "prefecture"
     t.text "ground"
     t.text "content"
+    t.boolean "is_active", default: true
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_posts_on_customer_id"
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_101227) do
     t.text "level"
     t.text "activity_day"
     t.text "plofile_image"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_profiles_on_customer_id"

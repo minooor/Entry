@@ -40,7 +40,7 @@ class Public::ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:name, :member, :address, :level, :activity_day, :profile_image )
+    params.require(:profile).permit(:name, :member, :address, :level, :activity_day, :profile_image, :category )
   end
 
 end

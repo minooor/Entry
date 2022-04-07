@@ -1,12 +1,16 @@
 <h1>プロフィールを作成する</h1>
 <%= form_with model: @profile, local: true do |f| %>
 <div>
-  <%= f.label :image %>
+  <%= f.label "プロフィール画像" %>
   <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
 </div>
 <div>
   <%= f.label "チーム名" %>
   <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label "競技名" %>
+  <%= f.text_field :category %>
 </div>
  <div>
    <%= f.label "活動拠点" %>
