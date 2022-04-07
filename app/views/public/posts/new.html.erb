@@ -1,4 +1,5 @@
 <h3>練習試合募集投稿</h3>
+<%= render 'layouts/errors', obj: @post %>
 <%= form_with model: @post, local: true do |f| %>
 <div>
   <%= f.label "競技名" %>

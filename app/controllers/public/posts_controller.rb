@@ -9,6 +9,8 @@ class Public::PostsController < ApplicationController
 
 
   def new
+    #募集画面にはprofileがなければいけないように設定
+    return redirect_to new_profile_path if current_customer.profile.blank?
     @post = Post.new
   end
 
