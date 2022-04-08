@@ -5,7 +5,7 @@
     <tr>
       <th>名前</th>
       <th>プロフィール写真</th>
-      <th></th>
+      <th>競技名</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +18,9 @@
       </td>
       <td>
         <%= image_tag profile.get_profile_image, size:'50x50' %>
+      </td>
+      <td>
+        <%= profile.category %>
       </td>
     </tr>
     <% end %>

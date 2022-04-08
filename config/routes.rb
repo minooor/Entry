@@ -10,7 +10,10 @@ Rails.application.routes.draw do
      patch 'withdraw' => 'customers#withdraw'
    end
 
-   resources :profiles
+   resources :profiles do
+     resource :favorites, only: [:create, :destroy]
+   end
+
    resources :posts
    get "search_post" => "posts#search_post"
 

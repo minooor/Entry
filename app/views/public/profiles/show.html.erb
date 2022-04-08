@@ -4,7 +4,7 @@
   <%= image_tag @profile.get_profile_image, size:'200x200' %>
 </div>
 <div>
-  <%= @profile.name %>
+  <%= @profile.customer.name %>
 </div>
 <div>
   <%= @profile.category %>
@@ -21,5 +21,18 @@
  <div>
    <%= @profile.activity_day %>
  </div>
+
+ <div>
+ <% if @profile.favorited_by?(current_customer) %>
+  <%= link_to profile_favorites_path(@profile), method: :delete do %>
+   ♥<%= @profile.favorites.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to profile_favorites_path(@profile), method: :post do %>
+   ♡<%= @profile.favorites.count %> いいね
+  <% end %>
+<% end %>
+</div>
+
 <%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
 <%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>

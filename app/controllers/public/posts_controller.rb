@@ -25,6 +25,11 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    if @post.customer == current_customer
+      render :edit
+    else
+      redirect_to posts_path
+    end
   end
 
   def update
