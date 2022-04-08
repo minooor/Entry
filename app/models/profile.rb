@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   has_one_attached :profile_image
   belongs_to :customer
   has_many :favorites, dependent: :destroy
+  has_many :profile_comments, dependent: :destroy
 
   validates :category, presence: true
   validates :address, presence: true

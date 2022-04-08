@@ -2,6 +2,7 @@ class Public::ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update]
 
   def show
+    @profile_comment = ProfileComment.new
   end
 
   def new

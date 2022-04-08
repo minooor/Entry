@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
    resources :profiles do
      resource :favorites, only: [:create, :destroy]
+     resources :profile_comments, only: [:create, :destroy]
    end
 
    resources :posts
