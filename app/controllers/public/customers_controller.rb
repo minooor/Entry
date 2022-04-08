@@ -31,6 +31,12 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  def favorites
+    @customer = Customer.find(params[:id])
+    favorites = Favorite.where(customer_id: @customer.id).pluck(:profile_id)
+    @favorite_profiles = Profile.find(favorites)
+  end
+
   private
 
   def customer_params
