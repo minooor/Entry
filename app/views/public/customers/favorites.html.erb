@@ -1,15 +1,15 @@
-<h1>チーム一覧</h1>
-<div class="container">
+<div>お気に入りチーム一覧</div>
 <table class="table">
   <thead>
     <tr>
-      <th>名前</th>
-      <th>プロフィール写真</th>
+      <th>チーム名</th>
+      <th>活動拠点</th>
       <th>競技名</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @profiles.each do |profile| %>
+    <% @favorite_profiles.each do |profile|%>
     <tr>
       <td>
         <%= link_to profile_path(profile) do %>
@@ -17,13 +17,15 @@
         <% end %>
       </td>
       <td>
-        <%= image_tag profile.get_profile_image, size:'50x50' %>
+        <%= profile.address %>
       </td>
       <td>
         <%= profile.category %>
+      </td>
+      <td>
+        
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
-</div>

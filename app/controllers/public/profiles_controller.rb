@@ -2,6 +2,8 @@ class Public::ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update]
 
   def show
+    @profile_comment = ProfileComment.new
+    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -20,6 +22,11 @@ class Public::ProfilesController < ApplicationController
   end
 
   def edit
+    if @profile.customer == current_customer
+      render :edit
+    else
+      redirect_to profiles_path
+    end
   end
 
   def update
@@ -40,7 +47,7 @@ class Public::ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:name, :member, :address, :level, :activity_day, :profile_image )
+    params.require(:profile).permit(:name, :member, :address, :level, :activity_day, :profile_image, :category )
   end
 
 end

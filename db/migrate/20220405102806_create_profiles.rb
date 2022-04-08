@@ -8,6 +8,7 @@ class CreateProfiles < ActiveRecord::Migration[6.1]
       t.text :level
       t.text :activity_day
       t.text :plofile_image
+      t.string :category
 
       t.timestamps
     end

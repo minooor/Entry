@@ -3,10 +3,11 @@
   <div class="row">
     <div class="col-lg-3">
       <div><%= link_to "チームプロフィール", new_profile_path(@customer) %></div>
-      <div><%= link_to "会員情報変更", edit_customers_path %></div>
+      <div><%= link_to "会員情報変更", edit_customer_path(@customer) %></div>
+      <div><%= link_to "お気に入りチーム", favorites_customer_path(@customer) %></div>
       <div><%= link_to "DM" %></div>
       <div><%= link_to "募集する", new_post_path %></div>
-      <div><%= link_to "退会", unsubscribe_customers_path %></div>
+      <div><%= link_to "退会" %></div>
     </div>
 
     <div class="col-lg-9">

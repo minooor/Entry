@@ -3,10 +3,6 @@
 <div>
   <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
 </div>
-<div>
-  <%= f.label "チーム名" %>
-  <%= f.text_field :name %>
-</div>
  <div>
    <%= f.label "活動拠点" %>
    <%= f.text_field :address %>
@@ -25,4 +21,4 @@
  </div>
  <%= f.submit class: 'btn btn-success' %>
 <% end %>
-<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>
+<%= link_to "戻る", customer_path(@profile.customer), class: "btn btn-secondary" %>

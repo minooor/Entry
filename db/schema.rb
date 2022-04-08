@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_101227) do
+ActiveRecord::Schema.define(version: 2022_04_08_013529) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,15 +66,36 @@ ActiveRecord::Schema.define(version: 2022_04_06_101227) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_favorites_on_customer_id"
+    t.index ["profile_id"], name: "index_favorites_on_profile_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.date "game_on"
     t.integer "prefecture"
     t.text "ground"
     t.text "content"
+    t.boolean "is_active", default: true
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_posts_on_customer_id"
+  end
+
+  create_table "profile_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "customer_id", null: false
+    t.integer "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_profile_comments_on_customer_id"
+    t.index ["profile_id"], name: "index_profile_comments_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -85,6 +106,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_101227) do
     t.text "level"
     t.text "activity_day"
     t.text "plofile_image"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_profiles_on_customer_id"
@@ -92,6 +114,10 @@ ActiveRecord::Schema.define(version: 2022_04_06_101227) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "customers"
+  add_foreign_key "favorites", "profiles"
   add_foreign_key "posts", "customers"
+  add_foreign_key "profile_comments", "customers"
+  add_foreign_key "profile_comments", "profiles"
   add_foreign_key "profiles", "customers"
 end

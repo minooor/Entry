@@ -1,5 +1,10 @@
 <h3>練習試合募集投稿</h3>
+<%= render 'layouts/errors', obj: @post %>
 <%= form_with model: @post, local: true do |f| %>
+<div>
+  <%= f.label "競技名" %>
+  <%= f.text_field :category %>
+</div>
 <div>
   <%= f.label "試合日時" %>
   <%= f.date_field :game_on %>
@@ -12,6 +17,12 @@
   <%= f.label "コメント" %>
   <%= f.text_field :content %>
 </div>
+<div>
+  <%= f.label "募集状況" %>
+  <%= f.radio_button :is_active, 'true' %>
+  <%= f.label :is_active, "募集中", value:true %>
+  <%= f.radio_button :is_active, 'false' %>
+  <%= f.label :is_active, "終了", value:false %>
+</div>
 <%= f.submit class: 'btn btn-success' %>
 <% end %>
-<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>

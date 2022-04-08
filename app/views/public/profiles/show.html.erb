@@ -4,7 +4,10 @@
   <%= image_tag @profile.get_profile_image, size:'200x200' %>
 </div>
 <div>
-  <%= @profile.name %>
+  <%= @profile.customer.name %>
+</div>
+<div>
+  <%= @profile.category %>
 </div>
  <div>
    <%= @profile.address %>
@@ -18,5 +21,23 @@
  <div>
    <%= @profile.activity_day %>
  </div>
+
+ <div>
+   <%= render 'favorite-btn', profile: @profile %>
+</div>
+
+<div>
+  <p>コメント件数<%= @profile.profile_comments.count %></p>
+  <%= render 'comment', profile: @profile %>
+</div>
+
+<div>
+  <%= form_with model: [@profile, @profile_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+
+
 <%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
-<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>
+<%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>

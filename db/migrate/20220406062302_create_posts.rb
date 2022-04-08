@@ -6,6 +6,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :prefecture
       t.text :ground
       t.text :content
+      t.boolean :is_active, default: true
+      t.string :category
 
       t.timestamps
     end

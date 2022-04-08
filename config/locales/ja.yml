@@ -1,0 +1,21 @@
+ja:
+    activerecord:
+      attributes:
+        customer:
+          email: "メールアドレス"
+          password: "パスワード"
+          name: "名前"
+
+        profile:
+          name: "チーム名"
+          category: "競技名"
+          address: "活動拠点"
+          member: "人数"
+          level: "チームレベル"
+          activity_day: "活動日"
+
+        post:
+          category: "競技名"
+          game_on: "試合日時"
+          ground: "グラウンド"
+          content: "コメント"

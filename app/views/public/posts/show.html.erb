@@ -1,5 +1,13 @@
 <h2>練習試合募集詳細</h2>
 <div>
+  チーム名
+  <%= @post.customer.name %>
+</div>
+<div>
+  競技名
+  <%= @post.category %>
+</div>
+<div>
   試合日時
   <%= @post.game_on %>
 </div>
@@ -10,6 +18,14 @@
 <div>
   コメント
   <%= @post.content %>
+</div>
+<div>
+  募集状況
+  <% if @post.is_active == true %>
+   <P>募集中</P>
+  <% else %>
+   <p>終了</p>
+  <% end %>
 </div>
 
 <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
