@@ -3,6 +3,7 @@ class Public::ProfilesController < ApplicationController
 
   def show
     @profile_comment = ProfileComment.new
+    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -21,6 +22,11 @@ class Public::ProfilesController < ApplicationController
   end
 
   def edit
+    if @profile.customer == current_customer
+      render :edit
+    else
+      redirect_to profiles_path
+    end
   end
 
   def update

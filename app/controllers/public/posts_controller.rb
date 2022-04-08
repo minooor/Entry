@@ -25,6 +25,7 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
     if @post.customer == current_customer
       render :edit
     else

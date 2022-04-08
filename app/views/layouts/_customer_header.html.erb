@@ -1,29 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class>
-    <%= link_to "Entry!", root_path, class: 'btn btn-outline-light mx-2' %>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <%= link_to "About", about_path, class: 'btn btn-outline-light mx-2' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "チーム一覧", profiles_path, class: 'btn btn-outline-light mx-2' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "募集", posts_path, class: 'btn btn-outline-light mx-2' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "マイページ", mypage_customers_path, class: 'btn btn-outline-light mx-2' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-outline-light mx-2' %>
-      </li>
-      </li>
-    </ul>
-  </div>
-</nav>
+<%= link_to "Entry!", root_path, class: 'btn btn-outline-dark mx-2' %>
+<%= link_to "チーム一覧", profiles_path, class: 'btn btn-outline-dark mx-2' %>
+<%= link_to "募集", posts_path, class: 'btn btn-outline-dark mx-2' %>
+<%= link_to "マイページ", customer_path(current_customer), class: 'btn btn-outline-dark mx-2' %>
+<%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-outline-dark mx-2' %>

@@ -23,26 +23,12 @@
  </div>
 
  <div>
- <% if @profile.favorited_by?(current_customer) %>
-  <%= link_to profile_favorites_path(@profile), method: :delete do %>
-   ♥<%= @profile.favorites.count %> いいね
-  <% end %>
-<% else %>
-  <%= link_to profile_favorites_path(@profile), method: :post do %>
-   ♡<%= @profile.favorites.count %> いいね
-  <% end %>
-<% end %>
+   <%= render 'favorite-btn', profile: @profile %>
 </div>
 
 <div>
   <p>コメント件数<%= @profile.profile_comments.count %></p>
-  <% @profile.profile_comments. each do |profile_comment| %>
-   <%= profile_comment.customer.name %>
-   <%= profile_comment.created_at.strftime('%Y/%m/%d') %><%= profile_comment.comment %>
-   <% if profile_comment.customer == current_customer %>
-    <%= link_to "削除", profile_profile_comment_path(profile_comment.profile, profile_comment), method: :delete %>
-   <% end %>
-  <% end %>
+  <%= render 'comment', profile: @profile %>
 </div>
 
 <div>
@@ -54,4 +40,4 @@
 
 
 <%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
-<%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>
+<%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>

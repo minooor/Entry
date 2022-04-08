@@ -1,0 +1,9 @@
+<% if profile.favorited_by?(current_customer) %>
+  <%= link_to profile_favorites_path(profile), method: :delete do %>
+   ♥<%= profile.favorites.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to profile_favorites_path(profile), method: :post do %>
+   ♡<%= profile.favorites.count %> いいね
+  <% end %>
+<% end %>

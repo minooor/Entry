@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
   scope module: :public do
+
+    #会員用
+   devise_for :customers,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+   }
+
     root :to => 'homes#top'
     get 'about' => 'homes#about'
 
-    resource :customers, only: [:edit, :update] do
-     get 'mypage' => 'customers#show'
+    resources :customers, only: [:edit, :update, :show] do
      get 'unsubscribe' => 'customers#unsubscribe'
      patch 'withdraw' => 'customers#withdraw'
+     member do
+      get :favorites
+    end
    end
 
    resources :profiles do
@@ -18,11 +27,6 @@ Rails.application.routes.draw do
    resources :posts
    get "search_post" => "posts#search_post"
 
-   #会員用
-   devise_for :customers,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-   }
   end
 
 

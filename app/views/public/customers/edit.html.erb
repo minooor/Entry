@@ -1,5 +1,5 @@
 <h1>会員情報編集</h1>
-<%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
+<%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
  <div>
    <%= f.label :名前 %>
    <%= f.text_field :name %>
@@ -9,5 +9,5 @@
    <%= f.text_field :email %>
  </div>
  <%= f.submit "変更を保存", class: "btn btn-success" %>
- <%= link_to "戻る", mypage_customers_path, class: "btn btn-secondary" %>
+ <%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>
 <% end %>
