@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :profile_comments, dependent: :destroy
+  has_many :customer_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   validates :name, presence: true
 

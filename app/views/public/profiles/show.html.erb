@@ -30,6 +30,11 @@
   <p>コメント件数<%= @profile.profile_comments.count %></p>
   <%= render 'comment', profile: @profile %>
 </div>
+<div>
+  <% if current_customer != @customer %>
+  <%= link_to 'Begin Chat', chat_path(@customer.id) %>
+  <% end %>
+</div>
 
 <div>
   <%= form_with model: [@profile, @profile_comment] do |f| %>
