@@ -5,12 +5,12 @@ class Public::ProfileCommentsController < ApplicationController
     @comment = current_customer.profile_comments.new(profile_comment_params)
     @comment.profile_id = @profile.id
     @comment.save
-    redirect_to profile_path(@profile)
   end
 
   def destroy
-    ProfileComment.find(params[:id]).destroy
-    redirect_to profile_path(params[:profile_id])
+    @profile = Profile.find(params[:profile_id])
+    @profile_comment = ProfileComment.find(params[:id])
+    @profile_comment.destroy
   end
 
   private

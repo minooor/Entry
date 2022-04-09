@@ -1,9 +1,9 @@
 <% if profile.favorited_by?(current_customer) %>
-  <%= link_to profile_favorites_path(profile), method: :delete do %>
+  <%= link_to profile_favorites_path(profile), method: :delete, remote: true do %>
    お気に入りから外す
   <% end %>
 <% else %>
-  <%= link_to profile_favorites_path(profile), method: :post do %>
+  <%= link_to profile_favorites_path(profile), method: :post, remote: true do %>
    お気に入り登録
   <% end %>
 <% end %>
