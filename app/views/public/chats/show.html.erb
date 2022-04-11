@@ -4,6 +4,7 @@
   <% @chats.each do |chat| %>
   <% if chat.customer_id == current_customer.id %>
       <p style="text-align: right;"><%= chat.message %></p>
+      <%= link_to "delete", chat, method: :delete %>
     <% else %>
       <p style="text-align: left;"><%= chat.message %></p>
     <% end %>

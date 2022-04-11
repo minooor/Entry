@@ -1,0 +1,22 @@
+<div>
+  <% if @notifications.present? %>
+  <table>
+    <% @notifications.each do |notification| %>
+    <% if notification.checked == false %>
+    <tr>
+      <td>
+        <%= link_to chat_path(notification.visiter) do %>
+        <%= notification.visiter.name %>さんとのDMへ
+        <%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+        <% end %>
+        <%= link_to '既読にする',notification_path(notification.id),method: :put %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+  <% else %>
+    <p>未読の通知はありません</p>
+  <% end %>
+</div>
+
