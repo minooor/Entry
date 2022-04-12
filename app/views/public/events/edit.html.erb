@@ -1,0 +1,25 @@
+<%= form_with model: @event, local: true do |f| %>
+
+  <div class="title">
+    <div>タイトル</div>
+    <%= f.text_field :title %>
+  </div>
+
+
+  <div class="content">
+    <div>内容</div>
+    <%= f.text_field :content %>
+  </div>
+
+    <div class="time">
+    <div>時間</div>
+    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :end_time %>
+  </div>
+
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+
+<% end %>

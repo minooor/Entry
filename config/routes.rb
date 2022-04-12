@@ -29,6 +29,7 @@ Rails.application.routes.draw do
    resources :chats, only: [:create, :show, :destroy]
    resources :notifications, only: [:index, :destroy, :update]
    resources :rooms, only: [:index]
+   resources :events
 
   end
 
@@ -37,5 +38,12 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+
+  namespace :admin do
+    root :to => "homes#top"
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :profiles, only: [:index, :show, :update]
+    resources :posts, only: [:index, :show]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

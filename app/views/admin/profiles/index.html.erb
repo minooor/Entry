@@ -1,0 +1,25 @@
+<h1>プロフィール一覧</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>名前</th>
+      <th>写真</th>
+      <th>競技名</th>
+      <th>活動拠点</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+    <tr>
+      <th><%= profile.id %></th>
+      <th><%= profile.customer.name %></th>
+      <th><%= image_tag profile.get_profile_image, size:'50x50' %></th>
+      <th><%= profile.category %></th>
+      <th><%= profile.address %></th>
+      <th><%= link_to "詳細", admin_profile_path(profile) %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

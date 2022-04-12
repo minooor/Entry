@@ -2,6 +2,8 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @rooms = current_customer.customer_rooms.pluck(:room_id)
+    @events = Event.all.where(customer_id: current_customer.id)
+    @event = Event.new
   end
 
   def edit
@@ -41,7 +43,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :email, :profile_image)
+    params.require(:customer).permit(:name, :email, :profile_image, :is_deleted)
   end
 
 end

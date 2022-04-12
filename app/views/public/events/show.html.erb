@@ -1,0 +1,21 @@
+<div class="show">
+<p>
+  <strong>タイトル</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @event.content %>
+</p>
+
+<p>
+  <strong>日時</strong>
+  <%= @event.start_time.strftime("%m-%d") %>
+  <%= @event.end_time.strftime("%m-%d") %>
+</p>
+
+<%= link_to '編集', edit_event_path(@event) %>
+<%= link_to '消去', event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
+<%= link_to '戻る', customer_path(current_customer) %>
+</div>

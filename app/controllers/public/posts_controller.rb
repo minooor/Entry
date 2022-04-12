@@ -61,7 +61,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:game_on, :prefecture, :ground, :content, :category, :is_active)
+    params.require(:post).permit(:game_on, :ground, :content, :category, :is_active)
   end
 
 end
