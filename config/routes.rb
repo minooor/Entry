@@ -29,6 +29,7 @@ Rails.application.routes.draw do
    resources :chats, only: [:create, :show, :destroy]
    resources :notifications, only: [:index, :destroy, :update]
    resources :rooms, only: [:index]
+   resources :events
 
   end
 
