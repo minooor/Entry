@@ -28,6 +28,7 @@ Rails.application.routes.draw do
    get "search_post" => "posts#search_post"
    resources :chats, only: [:create, :show, :destroy]
    resources :notifications, only: [:index, :destroy, :update]
+   resources :rooms, only: [:index]
 
   end
 

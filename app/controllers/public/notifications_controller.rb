@@ -9,10 +9,10 @@ class Public::NotificationsController < ApplicationController
     notification.destroy
     redirect_back(fallback_location: root_path)
   end
-  
+
   def update
-    notification =Notification.find(params[:id]) 
-    if notification.update(checked: true) 
+    notification = Notification.find(params[:id])
+    if notification.update(checked: true)
       redirect_to action: :index
     end
   end
