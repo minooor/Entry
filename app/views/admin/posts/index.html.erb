@@ -2,6 +2,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>会員ID</th>
       <th>名前</th>
       <th>試合日時</th>
       <th>競技名</th>
@@ -12,21 +13,20 @@
   <tbody>
     <% @posts.each do |post| %>
     <tr>
+      <td><%= post.customer.id %></td>
       <td>
-        <%= link_to profile_path(post.customer_id) do %>
         <%= post.customer.name %>
-        <% end %>
       </td>
       <td>
         <%= post.game_on %>
       </td>
       <td>
-        <%= link_to post.category, search_post_path(keyword: post.category) %>
+        <%= post.category %>
       </td>
       <td><%= post.content.truncate(10) %></td>
       <td>
         <% if post.is_active == true %>
-         <%= link_to "募集中", post_path(post) %>
+         <%= link_to "募集中", admin_post_path(post) %>
         <% else %>
          終了
         <% end %>

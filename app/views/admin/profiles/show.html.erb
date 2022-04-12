@@ -1,0 +1,32 @@
+<h1>プロフィール</h1>
+
+<div>
+  <%= image_tag @profile.get_profile_image, size:'200x200' %>
+</div>
+<div>
+  <%= @profile.customer.name %>
+</div>
+<div>
+  <%= @profile.category %>
+</div>
+ <div>
+   <%= @profile.address %>
+ </div>
+ <div>
+   <%= @profile.member %>
+ </div>
+ <div>
+   <%= @profile.level %>
+ </div>
+ <div>
+   <%= @profile.activity_day %>
+ </div>
+
+<div class="comment-count">
+ <%= render 'public/profile_comments/count', profile: @profile %>
+</div>
+
+<div class="comment-index">
+ <%= render 'public/profiles/comment', profile: @profile %>
+</div>
+
