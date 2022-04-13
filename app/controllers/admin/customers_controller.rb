@@ -7,7 +7,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(params[:id])
   end
 
   def edit

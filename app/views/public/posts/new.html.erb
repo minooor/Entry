@@ -1,4 +1,5 @@
 <h3>練習試合募集投稿</h3>
+
 <%= render 'layouts/errors', obj: @post %>
 <%= form_with model: @post, local: true do |f| %>
 <div>
@@ -26,3 +27,22 @@
 </div>
 <%= f.submit class: 'btn btn-success' %>
 <% end %>
+
+<div>
+<h2>募集投稿一覧履歴</h2>
+<% @posts.each do |post| %>
+<div>
+ <%= post.category %>
+ <%= post.game_on %>
+ <%= post.ground %>
+ <%= post.content %>
+ <% if post.is_active == true %>
+   募集中
+　<% else %>
+   終了
+  <% end %>
+ </div>
+ <%= link_to "編集する", edit_post_path(post.id) %>
+ <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
+</div>

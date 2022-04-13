@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
 
     resources :customers, only: [:edit, :update, :show] do
-     get 'unsubscribe' => 'customers#unsubscribe'
-     patch 'withdraw' => 'customers#withdraw'
+     get 'unsubscribe'
+     patch 'withdraw'
      member do
       get :favorites
     end

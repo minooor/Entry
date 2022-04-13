@@ -11,10 +11,10 @@
 
   <div class="row mt-5 d-flex justify-content-center">
     <div class="col-2">
-      <%= link_to "退会しない", mypage_customers_path, class: "btn btn-primary btn-block btn-sm"%>
+      <%= link_to "退会しない", customer_path(current_customer), class: "btn btn-primary btn-block btn-sm"%>
     </div>
     <div class="col-2">
-      <%= link_to "退会する", withdraw_customers_path, method: :patch, class: "btn btn-danger btn-block btn-sm"%>
+      <%= link_to "退会する", customer_withdraw_path, method: :patch, class: "btn btn-danger btn-block btn-sm"%>
     </div>
   </div>
 </div>

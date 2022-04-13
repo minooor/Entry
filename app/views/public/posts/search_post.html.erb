@@ -3,8 +3,9 @@
   <thead>
     <tr>
       <th>名前</th>
-      <th>日程</th>
+      <th>試合日時</th>
       <th>競技名</th>
+      <th>コメント</th>
       <th>募集状況</th>
     </tr>
   </thead>
@@ -21,6 +22,9 @@
       </td>
       <td>
         <%= link_to post.category, search_post_path(keyword: post.category) %>
+      </td>
+      <td>
+        <%= post.content.truncate(10) %>
       </td>
       <td>
         <% if post.is_active == true %>

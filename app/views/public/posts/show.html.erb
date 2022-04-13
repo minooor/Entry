@@ -27,7 +27,15 @@
    <p>終了</p>
   <% end %>
 </div>
-
+<% if @post.customer == current_customer %>
 <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+<% end %>
+
+<div>
+  <% if current_customer != @post.customer %>
+  <%= link_to 'Begin Chat', chat_path(@post.customer) %>
+  <% end %>
+</div>
+
 <%= link_to "戻る", posts_path, class: "btn btn-secondary" %>
 

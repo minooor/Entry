@@ -1,4 +1,5 @@
 <h3>練習試合募集投稿</h3>
+<%= render 'layouts/errors', obj: @post %>
 <%= form_with model: @post, local: true do |f| %>
 <div>
   <%= f.label "競技名" %>
@@ -25,4 +26,4 @@
 </div>
 <%= f.submit class: 'btn btn-success' %>
 <% end %>
-<%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>
+<%= link_to "戻る", customer_path(current_customer), class: "btn btn-secondary" %>

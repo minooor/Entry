@@ -11,42 +11,39 @@ class Public::PostsController < ApplicationController
   def new
     #募集画面にはprofileがなければいけないように設定
     return redirect_to new_profile_path if current_customer.profile.blank?
+    @customer = current_customer
     @post = Post.new
+    @posts = @customer.posts
   end
 
   def create
     @post = Post.new(post_params)
     @post.customer = current_customer
     if @post.save
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post)
     else
+      @customer = current_customer
+      @posts = @customer.posts
       render :new
     end
   end
 
   def edit
-    @customer = Customer.find(params[:id])
-    if @post.customer == current_customer
-      render :edit
-    else
-      redirect_to posts_path
-    end
+    @customer = current_customer
   end
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post.id)
+      redirect_to post_path
     else
       render :edit
     end
   end
 
   def destroy
-    if @post.destroy(post_params)
-      redirect_to posts_path
-    else
-      render :show
-    end
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to new_post_path
   end
 
   def find_post

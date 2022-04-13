@@ -1,4 +1,5 @@
 class Public::EventsController < ApplicationController
+  before_action :authenticate_customer!
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
