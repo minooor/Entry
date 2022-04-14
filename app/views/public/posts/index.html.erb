@@ -13,8 +13,12 @@
     <% @posts.each do |post| %>
     <tr>
       <td>
-        <%= link_to profile_path(post.customer_id) do %>
-        <%= post.customer.name %>
+        <% if customer_signed_in? %>
+         <%= link_to profile_path(post.customer_id) do %>
+         <%= post.customer.name %>
+         <% end %>
+        <% else %>
+         <%= post.customer.name %>
         <% end %>
       </td>
       <td>
@@ -35,4 +39,5 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @posts %>
 </div>

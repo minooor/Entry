@@ -1,25 +1,51 @@
-<h1>プロフィールを編集する</h1>
-<%= render 'layouts/errors', obj: @profile %>
-<%= form_with model: @profile, local: true do |f| %>
-<div>
-  <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+<div class = "container">
+  <div class="col-12 col-md-8">
+    <%= render 'layouts/errors', obj: @profile %>
+    <%= form_with model: @profile, local: true do |f| %>
+    <table class = "table mt-3">
+      <h3 class="mt-3">プロフィール編集</h3>
+      <thead>
+        <tr>
+          <td><%= f.label :競技名 %></td>
+          <th>
+            <%= f.text_field :category, class: 'form-control' %>
+          </th>
+        </tr>
+        <tr>
+          <td><%= f.label :活動拠点 %></td>
+          <th>
+            <%= f.text_field :address, class: 'form-control' %>
+          </th>
+        </tr>
+        <tr>
+          <td><%= f.label :人数 %></td>
+          <th>
+            <%= f.text_field :member, class: 'form-control' %>
+          </th>
+        </tr>
+        <tr>
+          <td><%= f.label :チームレベル %></td>
+          <th>
+            <%= f.text_field :level, class: 'form-control' %>
+          </th>
+        </tr>
+        <tr>
+          <td><%= f.label :活動日 %></td>
+          <th>
+            <%= f.text_field :activity_day, class: 'form-control' %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= f.submit "変更を保存", class: 'btn btn-success' %></td>
+          <td><%= link_to "戻る", customer_path(@profile.customer), class: "btn btn-secondary" %></td>
+        </tr>
+      </thead>
+    </table>
+    <% end %>
+  </div>
 </div>
- <div>
-   <%= f.label "活動拠点" %>
-   <%= f.text_field :address %>
- </div>
- <div>
-   <%= f.label "人数" %>
-   <%= f.text_field :member %>
- </div>
- <div>
-   <%= f.label "チームレベル" %>
-   <%= f.text_field :level %>
- </div>
- <div>
-   <%= f.label "活動日" %>
-   <%= f.text_field :activity_day %>
- </div>
- <%= f.submit class: 'btn btn-success' %>
-<% end %>
-<%= link_to "戻る", customer_path(@profile.customer), class: "btn btn-secondary" %>

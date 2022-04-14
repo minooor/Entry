@@ -1,55 +1,86 @@
-<h1>プロフィール</h1>
-
-<div>
-  <%= image_tag @profile.get_profile_image, size:'200x200' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card card border-dark mt-1">
+        <div class="d-flex justify-content-center">
+        <%= image_tag @profile.get_profile_image, size:'200x200' %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><%= @profile.customer.name %></h4>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th></th>
+                <td>競技名</td>
+                <td><%= @profile.category %></td>
+              </tr>
+                <tr>
+                <th></th>
+                <td>活動拠点</td>
+                <td><%= @profile.address %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>人数</td>
+                <td><%= @profile.member %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>チームレベル</td>
+                <td><%= @profile.level %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>活動日</td>
+                <td><%= @profile.activity_day %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>
+                  <div class="favorite-btn">
+                    <%= render 'public/profiles/favorite-btn', profile: @profile %>
+                  </div>
+                </td>
+                <td>
+                  <div class="comment-count">
+                    <%= render 'public/profile_comments/count', profile: @profile %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <% if current_customer != @customer %>
+                   <%= link_to 'DM', chat_path(@customer.id) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <% if @profile.customer == current_customer %>
+                  <%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="comment-index">
+       <%= render 'public/profiles/comment', profile: @profile %>
+      </div>
+      <div>
+        <%= form_with model: [@profile, @profile_comment], method: :post, local: false do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "w-100" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <%= @profile.customer.name %>
-</div>
-<div>
-  <%= @profile.category %>
-</div>
- <div>
-   <%= @profile.address %>
- </div>
- <div>
-   <%= @profile.member %>
- </div>
- <div>
-   <%= @profile.level %>
- </div>
- <div>
-   <%= @profile.activity_day %>
- </div>
-
- <div class="favorite-btn">
-   <%= render 'public/profiles/favorite-btn', profile: @profile %>
-</div>
-
-
-<div class="comment-count">
- <%= render 'public/profile_comments/count', profile: @profile %>
-</div>
-
-<div class="comment-index">
- <%= render 'public/profiles/comment', profile: @profile %>
-</div>
-
-<div>
-  <% if current_customer != @customer %>
-  <%= link_to 'Begin Chat', chat_path(@customer.id) %>
-  <% end %>
-</div>
-
-<div>
-  <%= form_with model: [@profile, @profile_comment], method: :post, local: false do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
-
-<% if @profile.customer == current_customer %>
-<%= link_to "編集する", edit_profile_path(@profile.id), class: "btn btn-success" %>
-<% end %>
-<%= link_to "戻る", customer_path(@customer), class: "btn btn-secondary" %>
-

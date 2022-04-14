@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.all.order(game_on: :desc)
+    @posts = Post.page(params[:page])
   end
 
   def show
