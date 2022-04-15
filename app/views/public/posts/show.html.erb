@@ -42,7 +42,7 @@
             </td>
             <td>
               <% if current_customer != @post.customer %>
-              <%= link_to 'Begin Chat', chat_path(@post.customer) %>
+              <%= link_to 'DM', chat_path(@post.customer) %>
               <% end %>
             </td>
           </tr>

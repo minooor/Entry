@@ -1,25 +1,43 @@
-<h1>プロフィール一覧</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>名前</th>
-      <th>写真</th>
-      <th>競技名</th>
-      <th>活動拠点</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @profiles.each do |profile| %>
-    <tr>
-      <th><%= profile.id %></th>
-      <th><%= profile.customer.name %></th>
-      <th><%= image_tag profile.get_profile_image, size:'50x50' %></th>
-      <th><%= profile.category %></th>
-      <th><%= profile.address %></th>
-      <th><%= link_to "詳細", admin_profile_path(profile) %></th>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<h3 class="text-center mt-3 mb-3">プロフィール一覧</h3>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="table-responsive">
+      <table class="table table-hover text-nowrap">
+        <thead class="thead-dark">
+          <tr class="align-middle text-center">
+            <th>会員ID</th>
+            <th>名前</th>
+            <th>写真</th>
+            <th>競技名</th>
+            <th>活動拠点</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @profiles.each do |profile| %>
+          <tr>
+            <td class="align-middle text-center">
+              <%= profile.id %>
+            </td>
+            <td class="align-middle text-center">
+              <%= profile.customer.name %>
+            </td>
+            <td class="align-middle text-center">
+              <%= image_tag profile.get_profile_image, size:'50x50' %>
+            </td>
+            <td class="align-middle text-center">
+              <%= profile.category %>
+            </td>
+            <td class="align-middle text-center">
+             <%= profile.address %>
+            </td>
+            <td class="align-middle text-center">
+              <%= link_to "詳細", admin_profile_path(profile) %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

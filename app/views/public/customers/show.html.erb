@@ -1,13 +1,12 @@
-<h1>マイページ</h1>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3">
+      <h3>マイページ</h3>
       <div><%= link_to "チームプロフィール", new_profile_path(@customer) %></div>
       <div><%= link_to "会員情報変更", edit_customer_path(@customer) %></div>
       <div><%= link_to "お気に入りチーム", favorites_customer_path(@customer) %></div>
       <div><%= link_to "DM一覧", rooms_path(@customer) %></div>
       <div><%= link_to "募集投稿/履歴", new_post_path %></div>
-
       <div>
         <%= link_to (notifications_path) do %>
          <% if unchecked_notifications.any?%>
@@ -18,6 +17,10 @@
         <% end %>
       </div>
     </div>
-    <%= render 'public/events/index', event: @events %>
+
+    <div class="col-md-8">
+      <%= render 'public/events/index', event: @events %>
+    </div>
+
   </div>
 </div>
