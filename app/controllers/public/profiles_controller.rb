@@ -22,18 +22,14 @@ class Public::ProfilesController < ApplicationController
   end
 
   def edit
-    if @profile.customer == current_customer
-      render :edit
-    else
-      redirect_to profiles_path
-    end
+    @profile.customer == current_customer
   end
 
   def update
     if @profile.update(profile_params)
       redirect_to profile_path(@profile.id)
     else
-      render edit
+      render :edit
     end
   end
 

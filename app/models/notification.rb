@@ -5,5 +5,5 @@ class Notification < ApplicationRecord
   belongs_to :visiter, class_name: 'Customer', foreign_key: 'visiter_id'
   #通知を送られた
   belongs_to :visited, class_name: 'Customer', foreign_key: 'visited_id'
-  
+
 end

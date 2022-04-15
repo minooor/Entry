@@ -1,5 +1,25 @@
-<%= link_to "Entry!", root_path, class: 'btn btn-outline-dark mx-2' %>
-<%= link_to "About", about_path, class: 'btn btn-outline-dark mx-2' %>
-<%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-outline-dark mx-2' %>
-<%= link_to "ログイン", new_customer_session_path, class: 'btn btn-outline-dark mx-2' %>
-
+<nav class="navbar bg-dark navbar-expand-lg navbar-dark">
+  <%= link_to "Entry!", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to "About", about_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "チーム一覧", profiles_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "募集一覧", posts_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

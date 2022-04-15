@@ -1,4 +1,5 @@
 class Public::RoomsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     # ログイン会員所属ルームID取得
     @customer_rooms = current_customer.customer_rooms

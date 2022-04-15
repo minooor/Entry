@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color:#ecf0f1">
     <% if current_customer == nil && current_admin == nil %>
       <%= render 'layouts/guest_header' %>
     <% elsif current_customer == nil && current_admin.present? %>
@@ -18,7 +18,9 @@
     <% else current_customer == true && current_admin == nill %>
       <%= render 'layouts/customer_header' %>
     <% end %>
-    <%= yield %>
-    <%= render 'layouts/footer'%>
+    <main>
+      <%= yield %>
+    </main>
+     <%= render 'layouts/footer'%>
   </body>
 </html>
