@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
 
   def search_post
     @post = Post.new
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).page(params[:page])
   end
 
   private

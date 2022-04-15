@@ -1,48 +1,35 @@
-<h3>練習試合募集投稿</h3>
-
-<%= render 'layouts/errors', obj: @post %>
-<%= form_with model: @post, local: true do |f| %>
-<div>
-  <%= f.label "競技名" %>
-  <%= f.text_field :category %>
-</div>
-<div>
-  <%= f.label "試合日時" %>
-  <%= f.date_field :game_on %>
-</div>
-<div>
-  <%= f.label "グラウンド" %>
-  <%= f.text_field :ground %>
-</div>
-<div>
-  <%= f.label "コメント" %>
-  <%= f.text_field :content %>
-</div>
-<div>
-  <%= f.label "募集状況" %>
-  <%= f.radio_button :is_active, 'true' %>
-  <%= f.label :is_active, "募集中", value:true %>
-  <%= f.radio_button :is_active, 'false' %>
-  <%= f.label :is_active, "終了", value:false %>
-</div>
-<%= f.submit class: 'btn btn-success' %>
-<% end %>
-
-<div>
-<h2>募集投稿一覧履歴</h2>
-<% @posts.each do |post| %>
-<div>
- <%= post.category %>
- <%= post.game_on %>
- <%= post.ground %>
- <%= post.content %>
- <% if post.is_active == true %>
-   募集中
-　<% else %>
-   終了
-  <% end %>
- </div>
- <%= link_to "編集する", edit_post_path(post.id) %>
- <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
+<div class="container">
+  <div class="row mt-3">
+    <%= render 'layouts/errors', obj: @post %>
+    <div class="col-md-4">
+      <h3>練習試合募集投稿</h3>
+       <%= render 'public/posts/form', post: @post %>
+    </div>
+    <div class="col-md-7 offset-1">
+      <h3>募集投稿一覧</h3>
+      <table class="table table-hover">
+        <% @posts.each do |post| %>
+        <tbody>
+          <tr>
+            <td><%= post.game_on %></td>
+            <td><%= post.ground %></td>
+            <td>
+              <% if post.is_active == true %>
+               募集中
+              <% else %>
+               終了
+              <% end %>
+            </td>
+            <td>
+             <%= link_to "編集する", edit_post_path(post.id) %>
+            </td>
+            <td>
+             <%= link_to "削除", post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            </td>
+          </tr>
+        </tbody>
+       <% end %>
+      </table>
+    </div>
+  </div>
 </div>
