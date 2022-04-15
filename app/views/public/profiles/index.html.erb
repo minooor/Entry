@@ -1,37 +1,39 @@
 <h3 class="text-center mt-3 mb-3">チーム一覧</h3>
 <div class="container">
   <div class="row justify-content-center">
-    <table class="table table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th>名前</th>
-          <th>プロフィール写真</th>
-          <th>競技名</th>
-          <th>活動拠点</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @profiles.each do |profile| %>
-        <tr>
-          <td class="align-middle text-center">
-            <% if customer_signed_in? %>
-             <%= link_to profile_path(profile) do %>
-             <%= profile.customer.name %>
-             <% end %>
-            <% else %>
-             <%= profile.customer.name %>
-            <% end %>
-          </td>
-          <td class="align-middle text-center">
-            <%= image_tag profile.get_profile_image, size:'50x50' %>
-          </td>
-          <td class="align-middle text-center">
-            <%= profile.category %>
-          </td>
-          <td class="align-middle text-center"><%= profile.address %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-hover text-nowrap">
+        <thead class="thead-dark">
+          <tr>
+            <th>名前</th>
+            <th>プロフィール写真</th>
+            <th>競技名</th>
+            <th>活動拠点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @profiles.each do |profile| %>
+          <tr>
+            <td class="align-middle text-center">
+              <% if customer_signed_in? %>
+               <%= link_to profile_path(profile) do %>
+               <%= profile.customer.name %>
+               <% end %>
+              <% else %>
+               <%= profile.customer.name %>
+              <% end %>
+            </td>
+            <td class="align-middle text-center">
+              <%= image_tag profile.get_profile_image, size:'50x50' %>
+            </td>
+            <td class="align-middle text-center">
+              <%= profile.category %>
+            </td>
+            <td class="align-middle text-center"><%= profile.address %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
