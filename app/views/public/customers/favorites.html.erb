@@ -1,31 +1,29 @@
-<div>お気に入りチーム一覧</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>チーム名</th>
-      <th>活動拠点</th>
-      <th>競技名</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @favorite_profiles.each do |profile|%>
-    <tr>
-      <td>
-        <%= link_to profile_path(profile) do %>
-        <%= profile.customer.name %>
+<h3 class="text-center mt-3 mb-3">お気に入りチーム一覧</h3>
+<div class="container">
+  <div class="row justify-content-center">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>名前</th>
+          <th>競技名</th>
+          <th>活動拠点</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favorite_profiles.each do |profile|%>
+        <tr>
+          <td>
+            <%= link_to profile_path(profile) do %>
+             <%= profile.customer.name %>
+            <% end %>
+          </td>
+          <td><%= profile.category %></td>
+          <td><%= profile.address %></td>
+          <td><%= link_to 'DM', chat_path(profile) %></td>
+        </tr>
         <% end %>
-      </td>
-      <td>
-        <%= profile.address %>
-      </td>
-      <td>
-        <%= profile.category %>
-      </td>
-      <td>
-
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>

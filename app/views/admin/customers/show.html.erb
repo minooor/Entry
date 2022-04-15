@@ -1,23 +1,31 @@
-<h1><%= @customer.name %>さんの会員情報</h1>
- <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
- <div>
-   <%= f.label :名前 %>
-   <%= f.text_field :name %>
- </div>
- <div>
-   <%= f.label :メールアドレス %>
-   <%= f.text_field :email %>
- </div>
- <div>
-   <%= f.label :会員ステータス %>
-   <th>
-     <%= f.radio_button :is_deleted, 'false' %>
-     <%= f.label :is_deleted, '有効', value: false %>
-     <%= f.radio_button :is_deleted, 'true' %>
-     <%= f.label :is_deleted, '退会', value: true %>
-   </th>
- </div>
- <%= f.submit "変更を保存", class: "btn btn-success" %>
-<% end %>
-
- <%= link_to "戻る", admin_customers_path, class: "btn btn-secondary" %>
+<div class='container'>
+ <div class='row'>
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <%= render 'layouts/errors', obj: @customer %>
+   <h2><%= @customer.name %>さんの会員情報</h2>
+   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control name" %>
+   </div>
+   <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control email" %>
+   </div>
+   <div class="col-10 btn-group mt-3" data-toggle="buttons">
+    <label class="btn btn-outline-secondary active" style="width:50%">
+      <%= f.radio_button :is_deleted, {checked: false} %> 有効
+    </label>
+    <label class="btn btn-outline-secondary" style="width:50%">
+      <%= f.radio_button :is_deleted, {} %> 退会
+    </label>
+   </div>
+   <div class="form-group">
+    <div class="d-flex justify-content-between mt-3">
+     <%= link_to "戻る", admin_customers_path, class: "btn btn-secondary" %>
+    <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+    </div>
+   </div>
+   <% end %>
+  </div>
+</div>

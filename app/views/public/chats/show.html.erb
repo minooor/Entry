@@ -1,5 +1,6 @@
 <h1><%= @customer.name %> さんとのチャット</h1>
 
+<div>
 <div class="message" style="width: 400px;">
   <% @chats.each do |chat| %>
   <% if chat.customer_id == current_customer.id %>

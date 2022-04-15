@@ -1,29 +1,49 @@
-<h2><%= @post.customer.name %>さんの練習試合募集詳細</h2>
-<div>
-  チーム名
-  <%= @post.customer.name %>
-</div>
-<div>
-  競技名
-  <%= @post.category %>
-</div>
-<div>
-  試合日時
-  <%= @post.game_on %>
-</div>
-<div>
-  グラウンド
-  <%= @post.ground %>
-</div>
-<div>
-  コメント
-  <%= @post.content %>
-</div>
-<div>
-  募集状況
-  <% if @post.is_active == true %>
-   <P>募集中</P>
-  <% else %>
-   <p>終了</p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <table class="table table-borderless">
+        <h3 class="mt-3 mb-3"><%= @post.customer.name %>さんの募集詳細</h3>
+        <tbody>
+          <tr>
+            <td>チーム名</td>
+            <td><%= @post.customer.name %></td>
+          </tr>
+          <tr>
+            <td>競技名</td>
+            <td><%= @post.category %></td>
+          </tr>
+          <tr>
+            <td>試合日時</td>
+            <td><%= @post.game_on %></td>
+          </tr>
+          <tr>
+            <td>グラウンド</td>
+            <td><%= @post.ground %></td>
+          </tr>
+          <tr>
+            <td>コメント</td>
+            <td><%= @post.content %></td>
+          </tr>
+          <tr>
+            <td>募集状況</td>
+            <td>
+              <% if @post.is_active == true %>
+              募集中
+              <% else %>
+              終了
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "戻る", admin_posts_path, class: "btn btn-secondary" %>
+            </td>
+            <td>
+              <%= link_to "削除", admin_post_path(@post), method: :delete, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

@@ -1,32 +1,56 @@
-<h1>プロフィール</h1>
-
-<div>
-  <%= image_tag @profile.get_profile_image, size:'200x200' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card card border-dark mt-1">
+        <div class="d-flex justify-content-center">
+        <%= image_tag @profile.get_profile_image, size:'200x200' %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><%= @profile.customer.name %></h4>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th></th>
+                <td>競技名</td>
+                <td><%= @profile.category %></td>
+              </tr>
+                <tr>
+                <th></th>
+                <td>活動拠点</td>
+                <td><%= @profile.address %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>人数</td>
+                <td><%= @profile.member %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>チームレベル</td>
+                <td><%= @profile.level %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>活動日</td>
+                <td><%= @profile.activity_day %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>
+                  <div class="comment-count">
+                    <%= render 'public/profile_comments/count', profile: @profile %>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="comment-index">
+       <%= render 'public/profiles/comment', profile: @profile %>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <%= @profile.customer.name %>
-</div>
-<div>
-  <%= @profile.category %>
-</div>
- <div>
-   <%= @profile.address %>
- </div>
- <div>
-   <%= @profile.member %>
- </div>
- <div>
-   <%= @profile.level %>
- </div>
- <div>
-   <%= @profile.activity_day %>
- </div>
-
-<div class="comment-count">
- <%= render 'public/profile_comments/count', profile: @profile %>
-</div>
-
-<div class="comment-index">
- <%= render 'public/profiles/comment', profile: @profile %>
-</div>
-
