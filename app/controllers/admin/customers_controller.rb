@@ -3,7 +3,8 @@ class Admin::CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update]
 
   def index
-    @customers = Customer.all
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
   end
 
   def show

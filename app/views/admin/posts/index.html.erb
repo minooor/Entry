@@ -1,5 +1,8 @@
 <h3 class="text-center mt-3 mb-3">募集一覧</h3>
 <div class="container">
+  <div class="d-flex justify-content-end mb-3">
+    <%= render "search", q: @q %>
+  </div>
   <div class="row justify-content-center">
     <div class="table-responsive">
       <table class="table table-hover text-nowrap">
