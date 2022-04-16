@@ -7,6 +7,6 @@ class Post < ApplicationRecord
   validates :category, presence: true
 
   def self.search(search_word)
-    Post.where(['category LIKE?', "#{search_word}"])
+    Post.where(['category LIKE?', "%#{search_word}%"])
   end
 end
