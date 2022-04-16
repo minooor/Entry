@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
   def index
-    @posts = Post.all.order(game_on: :desc)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   def show

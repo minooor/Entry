@@ -61,6 +61,7 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 gem 'rails-i18n'
 gem 'simple_calendar', '~> 2.0'
+gem 'ransack'
 
 gem 'dotenv-rails'
 group :production do

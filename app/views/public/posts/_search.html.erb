@@ -1,0 +1,5 @@
+   <%= form_with url: search_post_path, local: true, method: :get do |f| %>
+    <%= f.label :競技名 %>
+    <%= f.text_field :keyword %>
+    <%= f.submit "検索",class: "btn-sm btn-primary" %>
+   <% end %>
