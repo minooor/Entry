@@ -1,28 +1,3 @@
-<h3>予定</h3>
-<%= form_with model: @event, local: true do |f| %>
-  <div>
-    <%= f.label "タイトル" %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label "内容" %>
-    <%= f.text_field :cnontent %>
-  </div>
-
-  <div>
-    <%= f.label "始まりの時間" %>
-    <%= f.datetime_select :start_time %><br>
-    <%= f.label "終わりの時間" %>
-    <%= f.datetime_select :end_time %>
-  </div>
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<div class="col-md-8">
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 
@@ -32,6 +7,5 @@
     </div>
   <% end %>
 <% end %>
-</div>
 </div>
 </div>

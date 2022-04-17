@@ -1,6 +1,7 @@
 class Public::EventsController < ApplicationController
   before_action :authenticate_customer!
   before_action :find_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_beginning_of_week
 
   def index
   end
@@ -15,7 +16,7 @@ class Public::EventsController < ApplicationController
     if @event.save
       redirect_back(fallback_location: root_path)
     else
-      render 'new'
+      redirect_to customer_path(current_customer)
     end
   end
 
@@ -46,6 +47,10 @@ class Public::EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :content, :start_time, :end_time)
+  end
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
   end
 
 end
