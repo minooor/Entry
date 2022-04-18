@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .page-holder {
   min-height: 100vh;
@@ -31,6 +32,18 @@ main{
 
  .pagination {
   justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  background-color: #ecf0f1;
+  color: #696969;
+  border-radius: 5px;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 5px;
 }
 
 input[type=radio] {
