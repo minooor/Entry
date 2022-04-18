@@ -1,4 +1,8 @@
 <%= form_with model: event, local: true do |f| %>
+<p class="font-weight-bold">カレンダー入力</p>
+<div class="text-danger">
+　<%= flash[:alert] %>
+</div>
 <div class="form-group">
   <%= f.label "タイトル" %>
   <%= f.text_field :title, class: 'form-control' %>

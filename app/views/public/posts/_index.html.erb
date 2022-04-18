@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-hover text-nowrap">
+    <thead class="thead-dark">
+      <tr>
+        <th>名前</th>
+        <th>試合日時</th>
+        <th>競技名</th>
+        <th>コメント</th>
+        <th>募集状況</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <% if customer_signed_in? %>
+           <%= link_to profile_path(post.customer_id) do %>
+           <%= post.customer.name %>
+           <% end %>
+          <% else %>
+           <%= post.customer.name %>
+          <% end %>
+        </td>
+        <td><%= post.game_on %></td>
+        <td><%= post.category %></td>
+        <td><%= post.content.truncate(10) %></td>
+        <td>
+          <% if post.is_active == true %>
+           <%= link_to "募集中", post_path(post) %>
+          <% else %>
+           終了
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div><%= paginate post %></div>

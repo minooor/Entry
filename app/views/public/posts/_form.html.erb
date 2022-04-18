@@ -1,4 +1,5 @@
 <%= form_with model: post, local: true do |f| %>
+<%= render 'layouts/errors', obj: post %>
 <div class="form-group">
   <%= f.label "競技名" %>
   <%= f.text_field :category, class: 'form-control' %>

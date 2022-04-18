@@ -13,7 +13,8 @@
         <% @another_customer_rooms.each do |a| %>
         <tr>
           <td><%= a.customer.name %></td>
-          <td><%= Chat.find_by(id: a.room.chat_ids.last).message %></td>
+          <td>
+            <%= Chat.find_by(id: a.room.chat_ids.last)&.message %></td>
           <td><%= link_to "DMする", chat_path(a.customer.id) %></td>
         </tr>
         <% end %>
