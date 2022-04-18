@@ -7,9 +7,9 @@ class Public::PostsController < ApplicationController
   def show
   end
 
-
   def new
     #募集画面にはprofileがなければいけないように設定
+    flash[:notice] = "チームプロフィールを作成してから行ってください"
     return redirect_to new_profile_path if current_customer.profile.blank?
     @customer = current_customer
     @post = Post.new
@@ -20,6 +20,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer = current_customer
     if @post.save
+      flash[:notice] = "募集を投稿しました"
       redirect_to post_path(@post)
     else
       @customer = current_customer
@@ -34,6 +35,7 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      flash[:notice] = "募集内容を変更しました"
       redirect_to post_path
     else
       render :edit
@@ -43,6 +45,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "募集を削除しました"
     redirect_to new_post_path
   end
 

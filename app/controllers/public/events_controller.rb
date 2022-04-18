@@ -14,8 +14,10 @@ class Public::EventsController < ApplicationController
     @event= Event.new(event_params)
     @event.customer = current_customer
     if @event.save
+      flash[:notice] = "予定を登録しました"
       redirect_back(fallback_location: root_path)
     else
+      flash[:alert] = "入力してください"
       redirect_to customer_path(current_customer)
     end
   end
@@ -25,6 +27,7 @@ class Public::EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      flash[:notice] = "予定を変更しました"
       redirect_to event_path(@event)
     else
       render 'edit'
@@ -36,6 +39,7 @@ class Public::EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    flash[:notice] = "予定を削除しました"
     redirect_to customer_path(current_customer)
   end
 

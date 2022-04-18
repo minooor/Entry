@@ -15,6 +15,7 @@ class Public::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.customer = current_customer
     if @profile.save
+      flash[:notice] = "プロフィールを登録しました"
       redirect_to profile_path(@profile.id)
     else
       render :new
@@ -27,6 +28,7 @@ class Public::ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
+      flash[:notice] = "プロフィールを変更しました"
       redirect_to profile_path(@profile.id)
     else
       render :edit

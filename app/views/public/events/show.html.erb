@@ -22,7 +22,7 @@
         <tr>
           <th><%= link_to '編集', edit_event_path(@event) %></th>
           <td>
-            <%= link_to '消去', event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
+            <%= link_to '削除', event_path(@event.id), method: :delete, data: { confirm: '本当に削除しますか?' } %>
           </td>
         </tr>
       </tbody>

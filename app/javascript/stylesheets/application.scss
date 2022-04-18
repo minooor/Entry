@@ -119,3 +119,16 @@ textarea {
   width:100%;
   border-radius: 6px;
 }
+
+#error_explanation {
+  width: 450px;
+  color: red;
+  list-style: none;
+  padding: 5px 5px 0;
+  margin-bottom: 10px;
+}
+
+#notice {
+  text-align: center;
+  color:#328cc1;
+}
