@@ -1,21 +1,30 @@
-<h1><%= @customer.name %> さんとのチャット</h1>
+<div class="container">
+  <div class="row  justify-content-center">
+    <div class="col-md-6">
+      <div class="message">
+        <h3 class="text-center mb-3 mt-3"><%= @customer.name %> さんとのチャット</h3>
+        <% @chats.each do |chat| %>
+          <% if chat.customer_id == current_customer.id %>
+            <p style="text-align: right;"><%= chat.message %>
+            <%= link_to "delete", chat, method: :delete %>
+            </p>
+          <% else %>
+            <p style="text-align: left;"><%= chat.message %></p>
+          <% end %>
+        <% end %>
+      </div>
 
-<div>
-<div class="message" style="width: 400px;">
-  <% @chats.each do |chat| %>
-  <% if chat.customer_id == current_customer.id %>
-      <p style="text-align: right;"><%= chat.message %></p>
-      <%= link_to "delete", chat, method: :delete %>
-    <% else %>
-      <p style="text-align: left;"><%= chat.message %></p>
-    <% end %>
-  <% end %>
-</div>
-
-   <div class="posts">
-    <%= form_with model: @chat, data: {remote: true} do |f| %>
-      <%= f.text_field :message %>
-      <%= f.hidden_field :room_id %>
-      <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
-    <% end %>
+      <div class="posts">
+        <%= form_with model: @chat, data: {remote: true} do |f| %>
+        <div class="form-group">
+          <%= f.text_field :message, class: "form-control" %>
+          <%= f.hidden_field :room_id %>
+        </div>
+        <div class="form-group text-right">
+          <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>

@@ -1,0 +1,45 @@
+<%= form_with model: profile, local: true do |f| %>
+  <table class = "table mt-3">
+    <thead>
+      <tr>
+        <td><%= f.label :競技名 %></td>
+        <th>
+          <%= f.text_field :category, class: 'form-control' %>
+        </th>
+      </tr>
+      <tr>
+        <td><%= f.label :活動拠点 %></td>
+        <th>
+          <%= f.text_field :address, class: 'form-control' %>
+        </th>
+      </tr>
+      <tr>
+        <td><%= f.label :人数 %></td>
+        <th>
+          <%= f.text_field :member, class: 'form-control' %>
+        </th>
+      </tr>
+      <tr>
+        <td><%= f.label :チームレベル %></td>
+        <th>
+          <%= f.text_field :level, class: 'form-control' %>
+        </th>
+      </tr>
+      <tr>
+        <td><%= f.label :活動日 %></td>
+        <th>
+          <%= f.text_field :activity_day, class: 'form-control' %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.submit class: 'btn btn-success' %></td>
+        <td><%= link_to "戻る", customer_path(current_customer), class: "btn btn-secondary" %></td>
+      </tr>
+    </thead>
+  </table>
+<% end %>

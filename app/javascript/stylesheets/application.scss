@@ -112,3 +112,10 @@ input[type=radio] {
     text-align: center;
   }
 }
+
+textarea {
+  resize:none;
+  height:100px;
+  width:100%;
+  border-radius: 6px;
+}
