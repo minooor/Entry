@@ -7,6 +7,7 @@ class Public::ProfilesController < ApplicationController
   end
 
   def new
+    flash.now[:notice] = "チームプロフィールを作成してから行ってください"
     return redirect_to profile_path(current_customer.profile) if current_customer.profile.present?
     @profile = Profile.new
   end

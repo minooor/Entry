@@ -14,14 +14,14 @@
         <% end %>
       </div>
 
-      <div class="posts">
+      <div class="d-flex justify-content-center fixed-bottom mb-3">
         <%= form_with model: @chat, data: {remote: true} do |f| %>
-        <div class="form-group">
-          <%= f.text_field :message, class: "form-control" %>
+        <div>
+          <%= f.text_field :message, size: "60", class: "form-control" %>
           <%= f.hidden_field :room_id %>
         </div>
-        <div class="form-group text-right">
-          <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
+        <div class="form-group text-right mt-3">
+          <%= f.submit "送信", class:"btn btn-sm btn-success" %>
         </div>
         <% end %>
       </div>
