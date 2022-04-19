@@ -40,7 +40,6 @@ class Public::ProfilesController < ApplicationController
     @q = Profile.ransack(params[:q])
     @profiles = @q.result(distinct: true).page(params[:page])
   end
-
   def find_profile
     @profile = Profile.find(params[:id])
   end
