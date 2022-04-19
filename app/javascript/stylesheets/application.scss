@@ -1,13 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.page-holder {
-  min-height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .bg-cover {
   background-size: cover;
-  background-color: #0f0e17;
+  background-image: url('../images/ground.jpg');
+  background-position: center;
+  height: 100vh;
 }
 
 footer{
@@ -144,6 +148,15 @@ textarea {
 #notice {
   text-align: center;
   color:#328cc1;
+  margin: 0;
+  padding: 0;
+  background-color: #343a40;
 }
 
-
+.home-top{
+  background-image: url('../images/top-page.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
