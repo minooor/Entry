@@ -1,7 +1,11 @@
-<div class="card">
-  <img class="img-fluid" src="assets/ラクロス.jpg" alt="">
-  <div class="card-img-overlay">
-    <p class="text-center text-white">ライバルを見つけよう</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="home-top">
+      <h3 class="text-center text-white mt-5">ライバルを見つけよう</h3>
+      <div class='d-flex justify-content-around mt-3 mb-3'>
+        <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-light" %>
+        <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-outline-light" %>
+      </div>
+    </div>
   </div>
 </div>
-

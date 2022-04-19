@@ -38,7 +38,7 @@
               <% if post.is_active == true %>
                <%= link_to "募集中", admin_post_path(post) %>
               <% else %>
-               終了
+               <%= link_to "終了", admin_post_path(post) %>
               <% end %>
             </td>
           </tr>
