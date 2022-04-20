@@ -2,12 +2,13 @@ class Public::ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update]
 
   def show
+    @profile_new = Profile.new
+    @customer = @profile.customer
     @profile_comment = ProfileComment.new
-    @customer = Customer.find(params[:id])
   end
 
   def new
-    flash.now[:notice] = "チームプロフィールを作成してから行ってください"
+    flash.now[:notice] = "チームプロフィールを作成してください"
     return redirect_to profile_path(current_customer.profile) if current_customer.profile.present?
     @profile = Profile.new
   end

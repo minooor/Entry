@@ -1,10 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Shippori Mincho', serif;
+}
+
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .bg-cover {
@@ -18,7 +26,6 @@ footer{
   width: 100%;
   height: 50px;
   bottom: 0;
-  left: 0;
   position: absolute;
 }
 
