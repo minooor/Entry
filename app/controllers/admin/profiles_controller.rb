@@ -3,7 +3,7 @@ class Admin::ProfilesController < ApplicationController
 
   def index
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).page(params[:page])
+    @profiles = @q.result(distinct: true).page(params[:page]).per(8)
   end
 
   def show
