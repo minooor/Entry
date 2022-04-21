@@ -1,5 +1,4 @@
 class Public::ProfileCommentsController < ApplicationController
-
   def create
     @profile = Profile.find(params[:profile_id])
     @comment = current_customer.profile_comments.new(profile_comment_params)

@@ -1,12 +1,7 @@
 <h3 class="text-center mt-3 mb-3">チーム一覧</h3>
 <div class="container">
   <div class="d-flex justify-content-end">
-    <%= search_form_for @q do |f| %>
-      <%= f.label :customer_name_or_category_cont, "チーム名or競技名" %>
-      <%= f.search_field :customer_name_or_category_cont %>
-      <%= f.submit "検索", class: "btn-sm btn-primary" %>
-      <%= link_to 'クリア', request.path, class: "btn-sm btn-secondary" %>
-    <% end %>
+    <%= render "search", q: @q %>
   </div>
   <div class="row justify-content-center">
     <div class="table-responsive">
@@ -32,7 +27,7 @@
               <% end %>
             </td>
             <td class="align-middle text-center">
-              <%= image_tag profile.get_profile_image, size:'50x50' %>
+              <%= image_tag profile.get_profile_image(50,50) %>
             </td>
             <td class="align-middle text-center">
               <%= profile.category %>

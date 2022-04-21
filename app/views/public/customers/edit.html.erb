@@ -1,8 +1,8 @@
 <div class='container'>
  <div class='row'>
-  <div class="col-md-8 px-sm-0 mx-auto">
+  <div class="col-md-8 mx-auto">
    <%= render 'layouts/errors', obj: @customer %>
-   <h2>会員情報編集</h2>
+   <h2 class="text-center mt-3">会員情報編集</h2>
    <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
    <div class="form-group">
     <%= f.label :name %>
@@ -14,7 +14,7 @@
    </div>
    <div class="form-group">
     <div class="d-flex justify-content-center">
-    <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+    <%= f.submit "変更を保存", class: 'btn btn-secondary mt-3' %>
     </div>
    </div>
    <div class="row justify-content-between">

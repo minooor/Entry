@@ -29,9 +29,9 @@
             </td>
             <td class="align-middle text-center">
               <% if customer.profile %>
-               <%= link_to "詳細", admin_profile_path(customer) %>
+               <%= link_to "詳細", admin_profile_path(customer.profile) %>
               <% else %>
-               ありません
+               作成されていません
               <% end %>
             </td>
             <td class="align-middle text-center">

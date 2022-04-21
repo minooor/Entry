@@ -42,7 +42,6 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "募集を削除しました"
     redirect_to new_post_path

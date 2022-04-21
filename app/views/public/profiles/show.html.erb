@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <div class="card card border-dark mt-1">
         <div class="d-flex justify-content-center">
-        <%= image_tag @profile.get_profile_image, size:'200x200' %>
+        <%= image_tag @profile.get_profile_image(200,200) %>
         </div>
         <div class="card-body">
           <h4 class="card-title"><%= @profile.customer.name %></h4>
@@ -38,7 +38,7 @@
                 <th></th>
                 <td>
                   <div class="favorite-btn">
-                    <%= render 'public/profiles/favorite-btn', profile: @profile %>
+                    <%= render 'favorite-btn', profile: @profile %>
                   </div>
                 </td>
                 <td>
@@ -73,7 +73,7 @@
     </div>
     <div class="col-md-8">
       <div class="comment-index">
-       <%= render 'public/profiles/comment', profile: @profile %>
+       <%= render 'comment', profile: @profile %>
       </div>
       <div class="comment-area">
         <%= form_with model: [@profile, @profile_comment], method: :post, local: false do |f| %>
