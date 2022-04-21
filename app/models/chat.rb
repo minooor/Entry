@@ -4,7 +4,7 @@ class Chat < ApplicationRecord
   belongs_to :room
   has_many :notifications, dependent: :destroy
 
-  validates :message,presence: true
+  validates :message, presence: true
 
   def create_notification_by(current_customer)
     notification = current_customer.active_notifications.new(
