@@ -1,4 +1,4 @@
-<h3 class="text-center mt-3 mb-3">会員一覧</h3>
+<h3 class="text-center my-3">会員一覧</h3>
 <div class="container">
   <div class="d-flex justify-content-end mb-3">
      <%= render "search", q: @q %>
@@ -18,23 +18,23 @@
         <tbody>
           <% @customers.each do |customer| %>
           <tr>
-            <td class="align-middle text-center">
+            <td>
               <%= customer.id %>
             </td>
-            <td class="align-middle text-center">
+            <td>
               <%= link_to customer.name, admin_customer_path(customer) %>
             </td>
-            <td class="align-middle text-center">
+            <td>
               <%= customer.email %>
             </td>
-            <td class="align-middle text-center">
+            <td>
               <% if customer.profile %>
                <%= link_to "詳細", admin_profile_path(customer.profile) %>
               <% else %>
                作成されていません
               <% end %>
             </td>
-            <td class="align-middle text-center">
+            <td>
               <% if customer.is_deleted == false %>
                <p class="text-success">有効</p>
               <% else %>

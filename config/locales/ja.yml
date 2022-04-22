@@ -5,6 +5,7 @@ ja:
           email: "メールアドレス"
           password: "パスワード"
           name: "名前"
+          
 
         profile:
           name: "チーム名"

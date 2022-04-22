@@ -15,16 +15,16 @@
       <div class="form-group">
         <%= f.label :password %><br />
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :"パスワード(確認用)" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
       <div class="form-group text-center mt-3">
-        <%= f.submit "Sign up", class: "btn btn-success w-50" %>
+        <%= f.submit "新規登録", class: "btn btn-success w-50" %>
       </div>
       <% end %>
       <div class="text-right mt-5">
