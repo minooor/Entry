@@ -19,7 +19,7 @@ class Admin::CustomersController < ApplicationController
       redirect_to admin_customers_path(@customer.id)
     else
       @customers = Customer.page(params[:page])
-      render :edit
+      render :show
     end
   end
 
