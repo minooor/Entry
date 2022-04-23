@@ -21,6 +21,11 @@
 
 ## 設計書
 
+- [実装機能リスト](https://docs.google.com/spreadsheets/d/1_vtQROHYgtecDJM5Ve26m5Bp-MODfJWgXfobv-CB6o0/edit#gid=885378170)
+- [ER図](https://app.diagrams.net/#G1pqJsIc1tAJbMMu4pCY8sMvvjdaw2WWe7 )
+- [テーブル設計書](https://docs.google.com/spreadsheets/d/1m_1stdeSEEJHkC5nE7sEKkzcYd-F4WgqW3mvU7Aejew/edit#gid=2101481738)
+- [アプリケーション設計書](https://docs.google.com/spreadsheets/d/1uYyQwORAhTGmLcihf-7P0cMXlyl1Jr45Bzq04A7APuo/edit#gid=2133469642)
+
 ## 開発環境
 
 - OS：Linux(CentOS)
@@ -32,12 +37,3 @@
 ## 使用素材
 
 - O-DAN
-
-## Gem
-
-- bootstrap
-- devise
-- kaminari
-- Simple Calender
-- ransack
-- pry-byebug
