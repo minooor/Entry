@@ -15,14 +15,16 @@
         <tr>
           <th>日時</th>
           <td>
-            <%= @event.start_time.strftime("%m-%d") %>
-            <%= @event.end_time.strftime("%m-%d") %>
+            <%= l @event.start_time %><br>
+            <%= l @event.end_time %>
           </td>
         </tr>
         <tr>
           <th><%= link_to '編集', edit_event_path(@event) %></th>
           <td>
-            <%= link_to '削除', event_path(@event.id), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+            <%= link_to event_path(@event.id), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+             <i class="fas fa-trash-alt"></i>
+            <% end %>
           </td>
         </tr>
       </tbody>

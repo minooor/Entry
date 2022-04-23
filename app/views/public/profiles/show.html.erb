@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <div class="card card border-dark mt-1">
         <div class="d-flex justify-content-center">
-        <%= image_tag @profile.get_profile_image(200,200) %>
+        <%= image_tag @profile.get_profile_image(200,200), class: "mt-2" %>
         </div>
         <div class="card-body">
           <h4 class="card-title"><%= @profile.customer.name %></h4>
