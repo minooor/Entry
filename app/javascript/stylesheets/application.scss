@@ -121,7 +121,7 @@ input[type=radio] {
   .wday-6 {}
 
   .today {
-    background: #FFFFC0
+    background: #DDDDDD
   }
 
   .past {}
@@ -171,4 +171,30 @@ textarea {
 td{
   text-align: center;
   vertical-align: middle;
+}
+
+.mypage a{
+    text-decoration: none;
+}
+
+.list {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.list::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform .4s;
+}
+.list:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
 }
