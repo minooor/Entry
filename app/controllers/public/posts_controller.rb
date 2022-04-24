@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
     return redirect_to new_profile_path if current_customer.profile.blank?
     @customer = current_customer
     @post = Post.new
-    @posts = @customer.posts
+    @posts = @customer.posts.order(created_at: :desc).page(params[:page])
   end
 
   def create

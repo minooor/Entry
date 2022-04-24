@@ -2,13 +2,13 @@
  <tbody>
   <% profile.profile_comments.each do |profile_comment| %>
   <tr>
-   <th><%= profile_comment.created_at.strftime('%Y/%m/%d') %></th>
+   <th><%= l profile_comment.created_at %></th>
    <th><%= profile_comment.customer.name %></th>
    <th style="width: 60%"><%= profile_comment.comment %></th>
    <th>
     <% if profile_comment.customer == current_customer or current_admin %>
     <%= link_to profile_profile_comment_path(profile_comment.profile, profile_comment), method: :delete, remote: true do %>
-     削除
+     <i class="fas fa-trash-alt"></i>
     <% end %>
     <% end %>
    </th>

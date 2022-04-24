@@ -4,16 +4,18 @@
       <div class="message">
         <h3 class="text-center my-3"><%= @customer.name %> さんとのチャット</h3>
         <% @chats.each do |chat| %>
-          <% if chat.customer_id == current_customer.id %>
+          <% if chat.customer_id == current_customer.id %>z
             <p style="text-align: right;"><%= chat.message %>
-            <%= link_to "delete", chat, method: :delete %>
+            <%= link_to chat, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
             </p>
           <% else %>
             <p style="text-align: left;"><%= chat.message %></p>
           <% end %>
         <% end %>
       </div>
-      <div class="d-flex justify-content-center fixed-bottom mb-3">
+      <div class="d-flex justify-content-center fixed-bottom mb-5">
         <%= form_with model: @chat, data: {remote: true} do |f| %>
         <div>
           <%= f.text_field :message, size: "80", class: "form-control" %>
