@@ -28,7 +28,6 @@ ja:
           end_time: "終わりの時間"
 
 
-ja:
-  time:
-    formats:
-      default: "%Y/%m/%d %H:%M:%S"
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
