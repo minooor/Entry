@@ -4,7 +4,7 @@
       <div class="message">
         <h3 class="text-center my-3"><%= @customer.name %> さんとのチャット</h3>
         <% @chats.each do |chat| %>
-          <% if chat.customer_id == current_customer.id %>z
+          <% if chat.customer_id == current_customer.id %>
             <p style="text-align: right;"><%= chat.message %>
             <%= link_to chat, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
