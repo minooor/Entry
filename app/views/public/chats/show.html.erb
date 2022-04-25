@@ -11,7 +11,10 @@
             <% end %>
             </p>
           <% else %>
-            <p style="text-align: left;"><%= chat.message %></p>
+            <p style="text-align: left;">
+              <i class="fas fa-user-circle"></i>
+              <%= chat.message %>
+            </p>
           <% end %>
         <% end %>
       </div>
