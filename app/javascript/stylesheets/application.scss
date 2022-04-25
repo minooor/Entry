@@ -136,10 +136,16 @@ input[type=radio] {
   }
 }
 
+.comment-area{
+  position: absolute;
+  bottom: 5px;
+  width:100%;
+}
+
 textarea {
   resize:none;
   height:100px;
-  width:100%;
+  width:85%;
   border-radius: 6px;
 }
 

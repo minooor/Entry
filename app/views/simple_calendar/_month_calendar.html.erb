@@ -4,17 +4,15 @@
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class:"ml-3" %>
   </div>
-
   <table class="table table-bordered">
     <thead class="thead-dark">
     <tr>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="text-center"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
-
     <tbody>
       <% date_range.each_slice(7) do |week| %>
         <tr>

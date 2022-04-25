@@ -8,7 +8,6 @@
     <% end %>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
-
   <table class="table table-striped">
     <thead>
       <tr>
@@ -17,7 +16,6 @@
         <% end %>
       </tr>
     </thead>
-
     <tbody>
       <% date_range.each_slice(7) do |week| %>
         <tr>
