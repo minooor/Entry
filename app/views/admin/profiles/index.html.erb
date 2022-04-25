@@ -1,6 +1,6 @@
 <h3 class="text-center my-3">プロフィール一覧</h3>
 <div class="container">
-  <div class="d-flex justify-content-end mb-3">
+  <div class="d-flex justify-content-end mb-1">
     <%= render "search", q: @q %>
   </div>
   <div class="row justify-content-center">
@@ -26,7 +26,7 @@
               <%= profile.customer.name %>
             </td>
             <td>
-              <%= image_tag profile.get_profile_image(50,50) %>
+              <%= image_tag profile.get_profile_image(45,45) %>
             </td>
             <td>
               <%= profile.category %>
