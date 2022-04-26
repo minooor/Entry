@@ -4,9 +4,10 @@ class Admin::HomesController < ApplicationController
   def top
     @customers = Customer.where(is_deleted: false)
     @customer= @customers.page(params[:page]).per(5).order(created_at: :desc)
-    @posts = Post
+    @posts = Post.all
     @post = @posts.page(params[:page]).per(5).order(created_at: :desc)
     @profiles = Profile.all
+    @profile = @profiles.page(params[:page]).per(5).order(created_at: :desc)
   end
 
 end
