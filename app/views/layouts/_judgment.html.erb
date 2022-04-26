@@ -1,0 +1,7 @@
+<% if obj.customer.is_deleted == false %>
+  <%= obj.customer.name %>
+<% else %>
+  <p class="text-danger">
+  <%= obj.customer.name %>は退会しました
+  </p>
+<% end %>
