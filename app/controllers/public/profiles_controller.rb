@@ -39,7 +39,7 @@ class Public::ProfilesController < ApplicationController
 
   def index
     @q = Profile.ransack(params[:q])
-    @profiles = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+    @profiles = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def find_profile

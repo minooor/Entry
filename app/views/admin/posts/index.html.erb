@@ -23,7 +23,13 @@
               <%= post.customer.id %>
             </td>
             <td>
-              <%= post.customer.name %>
+              <% if post.customer.is_deleted == false %>
+                <%= post.customer.name %>
+              <% else %>
+                <p class="text-danger">
+                <%= post.customer.name %>
+                </p>
+              <% end %>
             </td>
             <td>
               <%= post.game_on %>

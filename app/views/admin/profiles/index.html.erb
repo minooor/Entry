@@ -23,7 +23,13 @@
               <%= profile.customer.id %>
             </td>
             <td>
-              <%= profile.customer.name %>
+              <% if profile.customer.is_deleted == false %>
+                <%= profile.customer.name %>
+              <% else %>
+                <p class="text-danger">
+                <%= profile.customer.name %>
+                </p>
+              <% end %>
             </td>
             <td>
               <%= image_tag profile.get_profile_image(45,45) %>

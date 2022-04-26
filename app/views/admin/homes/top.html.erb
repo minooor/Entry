@@ -1,6 +1,6 @@
 <div calss="container">
   <div class="row d-flex justify-content-around mt-5">
-    <div class="col-md-3">
+    <div class="col-md-3 mb-3">
       <div class="card text-center">
         <div class="card-header">
           会員
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-3">
       <div class="card text-center">
         <div class="card-header">
           投稿
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-3">
       <div class="card text-center">
         <div class="card-header">
           プロフィール
@@ -54,6 +54,17 @@
         <div class="card-body">
           <h5 class="card-title">プロフィール数</h5>
           <p class="card-text"><%= @profiles.count %></p>
+          <table class="table table-borderless">
+            新着順
+          <tbody>
+            <% @profile.each do |profile| %>
+            <tr>
+              <td><%= profile.customer.name %></td>
+              <td><%= profile.category %></td>
+            </tr>
+            <% end %>
+          </tbody>
+          </table>
           <%= link_to "プロフィール一覧", admin_profiles_path, class: "btn btn-outline-info" %>
         </div>
       </div>
