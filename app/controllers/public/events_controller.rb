@@ -1,6 +1,7 @@
 class Public::EventsController < ApplicationController
   before_action :authenticate_customer!
   before_action :find_event, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_customer, only: [:show, :edit, :update, :destroy]
   before_action :set_beginning_of_week
 
   def index
@@ -35,19 +36,12 @@ class Public::EventsController < ApplicationController
   end
 
   def edit
-    unless @event.customer == current_customer
-      redirect_to  event_path(@event)
-    end
   end
 
   def destroy
-    if @event.customer != current_customer
-      redirect_to  event_path(@event)
-    else
-      @event.destroy
-      flash[:notice] = "予定を削除しました"
+    @event.destroy
+    flash[:notice] = "予定を削除しました"
     redirect_to customer_path(current_customer)
-    end
   end
 
   def find_event
@@ -64,4 +58,10 @@ class Public::EventsController < ApplicationController
     Date.beginning_of_week = :sunday
   end
 
+  def ensure_customer
+    @event = Event.find(params[:id])
+    unless @event.customer == current_customer
+      redirect_to customer_path(current_customer)
+    end
+  end
 end

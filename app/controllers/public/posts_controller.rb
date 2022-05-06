@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_customer, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.order(created_at: :desc).page(params[:page])
@@ -61,6 +62,13 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:game_on, :ground, :content, :category, :is_active)
+  end
+
+  def ensure_customer
+    @post = Post.find(params[:id])
+    unless @post.customer == current_customer
+      redirect_to posts_path
+    end
   end
 
 end
