@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
 
   validates :category, presence: true
   validates :address, presence: true
-  validates :member, presence: true
+  validates :member, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
   validates :level, presence: true
   validates :activity_day, presence: true
 

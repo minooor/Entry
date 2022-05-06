@@ -35,12 +35,19 @@ class Public::EventsController < ApplicationController
   end
 
   def edit
+    unless @event.customer == current_customer
+      redirect_to  event_path(@event)
+    end
   end
 
   def destroy
-    @event.destroy
-    flash[:notice] = "予定を削除しました"
+    if @event.customer != current_customer
+      redirect_to  event_path(@event)
+    else
+      @event.destroy
+      flash[:notice] = "予定を削除しました"
     redirect_to customer_path(current_customer)
+    end
   end
 
   def find_event
